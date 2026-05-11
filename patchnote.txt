@@ -1,0 +1,12 @@
+<patchnote>
+- Multi-framework: VORP / RSG / QBR / QR / RPX / RedEM via the Framework_* bridge
+- Admin panel rewrite (Vue NUI): jobs, gangs, public actions, item creator, custom blips/peds/props/markers/vehicles, templates, backups, audit log, server config
+- Placement modes: raycast (mouse) + gizmo (3D drag/rotate, needs jo_libs)
+- Interaction types: stash, farm, sell, process, craft, shop, vehicle garage, stable, duty, boss menu, teleport, clothing store/wardrobe, phone, dispatch
+- Dispatch / witness using ox_lib's real dispatch UI (pinned notifs with accept/decline), customizable in modules/editable/client.lua
+- Internal Discord log module (no lo_logs dependency), internal usable-items system (eat/drink/shot/injection/horse stimulant)
+- Leveled console logger (Logger.trace/debug/info/warn/error, Config.LogLevel, /jc_loglevel <level>)
+- Add as many languages as you want: drop locales/<code>.json with a "language" key, a button appears in the panel
+- Exports for other resources (see DOCUMENTATION.md)
+- RedM-safe: native control hashes, no os on client, lo_keysMapper key system, broken-ped detection, long model timeouts for horses/wagons
+</patchnote>
