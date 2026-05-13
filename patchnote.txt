@@ -1,5 +1,9 @@
 <patchnote>
-- Multi-framework: VORP / RSG / QBR / QR / RPX / RedEM via the Framework_* bridge
+1.0.1
+- Fix: interaction editor — the "Prop (object)" checkbox now stays checked after closing/reopening an interaction that already had a placed prop. Model, heading and zOffset are preserved on reload (regression from the slim-payload hydration path: only marker/ped/blip had the rawData fallback, prop was missing).
+
+1.0.0
+- VORP-only framework support (vorp_core + vorp_inventory); modules/editable/framework.lua is the bridge if you want to wire your own
 - Admin panel rewrite (Vue NUI): jobs, gangs, public actions, item creator, custom blips/peds/props/markers/vehicles, templates, backups, audit log, server config
 - Placement modes: raycast (mouse) + gizmo (3D drag/rotate, needs jo_libs)
 - Interaction types: stash, farm, sell, process, craft, shop, vehicle garage, stable, duty, boss menu, teleport, clothing store/wardrobe, phone, dispatch
