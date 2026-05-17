@@ -1,4 +1,7 @@
 <patchnote>
+1.0.2
+- Fix: item creator — `lo_item_usables` is now only written when the item is both Usable AND Consumable (otherwise the row is removed on create and update), preventing stray inserts for plain items
+
 1.0.1
 - Fix: interaction editor — the "Prop (object)" checkbox now stays checked after closing/reopening an interaction that already had a placed prop. Model, heading and zOffset are preserved on reload (regression from the slim-payload hydration path: only marker/ped/blip had the rawData fallback, prop was missing).
 
