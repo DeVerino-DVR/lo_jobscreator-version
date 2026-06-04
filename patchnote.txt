@@ -1,4 +1,10 @@
 <patchnote>
+1.0.3
+- Fix: revive — camera no longer stays stuck in death-cam position. The script now delegates to vorp_core's Player.Revive when vorp_core is present (proper SET_CINEMATIC_MODE_ACTIVE off + EndDeathCam + HUD restore). Built-in fallback also cleans the cam (DestroyAllCams + RenderScriptCams off + fade-in) for servers without vorp_core.
+- Feat: applier animations + item gate for revive / heal / handcuff. Each action can require an inventory item (medkit, bandage, handcuffs...) and play a RedM scenario (or custom anim dict/clip) on the player performing it. All editable from the admin panel: Server Config → Actions → "Animation & Item".
+- Feat: client-side hook `OnApplierAnim_<action>(cfg)` in modules/editable/client.lua for full takeover of the animation flow (return true to skip the default).
+- Soft-load ox_lib: lo_jobscreator now auto-loads `@ox_lib/init.lua` at runtime when ox_lib is started, without declaring it as a manifest dependency — buyers without ox_lib see no errors, servers with it get the global `lib` automatically.
+
 1.0.2
 - Fix: item creator — `lo_item_usables` is now only written when the item is both Usable AND Consumable (otherwise the row is removed on create and update), preventing stray inserts for plain items
 </patchnote>
