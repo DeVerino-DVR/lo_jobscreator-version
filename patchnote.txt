@@ -1,4 +1,7 @@
 <patchnote>
+1.0.4
+- Fix: consumable items created in the admin panel (tonic, food, drinks...) had their stat modifiers (healthCore, hunger, thirst, stress) silently ignored. The panel was sending empty strings for blank prop/animDict fields, which `completeItemData` treated as "already set" (`''` is truthy in Lua) so the type defaults were never applied. `createPropWithAnimation` then hung on an empty model/dict and `applyStatModifiers` was never reached. Empty fields are now correctly recognised as "use the type default", and the prop/dict loaders have timeouts to bail cleanly if something is wrong.
+
 1.0.3
 - Fix: revive — camera no longer stays stuck in death-cam position. The script now delegates to vorp_core's Player.Revive when vorp_core is present (proper SET_CINEMATIC_MODE_ACTIVE off + EndDeathCam + HUD restore). Built-in fallback also cleans the cam (DestroyAllCams + RenderScriptCams off + fade-in) for servers without vorp_core.
 - Feat: applier animations + item gate for revive / heal / handcuff. Each action can require an inventory item (medkit, bandage, handcuffs...) and play a RedM scenario (or custom anim dict/clip) on the player performing it. All editable from the admin panel: Server Config → Actions → "Animation & Item".
