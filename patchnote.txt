@@ -1,4 +1,7 @@
 <patchnote>
+1.0.6
+- Fix: peds with the right-click target prompt couldn't be locked onto. The 500ms ped-maintenance thread was re-applying SetBlockingOfNonTemporaryEvents + SetEntityInvincible + ped config flags 517/230 every tick, which makes RDR2's targeting engine treat the ped as a static decoration and refuse the lock-on. Target-prompt peds are now exempted from those flags so right-click works.
+
 1.0.5
 - Feat: per-ped right-click target prompt (RDR2 native lock-on). Each ped interaction now has a "Right-click target prompt" checkbox in the editor — when ticked, the action is triggered by right-clicking the ped (aim/target) instead of getting close + pressing G. Self-contained: no external resource dependency. The proximity prompt is automatically suppressed when the target prompt is enabled, so players don't get both at the same time.
 
