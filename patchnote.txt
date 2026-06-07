@@ -1,4 +1,7 @@
 <patchnote>
+1.0.5
+- Feat: per-ped right-click target prompt (RDR2 native lock-on). Each ped interaction now has a "Right-click target prompt" checkbox in the editor — when ticked, the action is triggered by right-clicking the ped (aim/target) instead of getting close + pressing G. Self-contained: no external resource dependency. The proximity prompt is automatically suppressed when the target prompt is enabled, so players don't get both at the same time.
+
 1.0.4
 - Fix: consumable items created in the admin panel (tonic, food, drinks...) had their stat modifiers (healthCore, hunger, thirst, stress) silently ignored. The panel was sending empty strings for blank prop/animDict fields, which `completeItemData` treated as "already set" (`''` is truthy in Lua) so the type defaults were never applied. `createPropWithAnimation` then hung on an empty model/dict and `applyStatModifiers` was never reached. Empty fields are now correctly recognised as "use the type default", and the prop/dict loaders have timeouts to bail cleanly if something is wrong.
 
