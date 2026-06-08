@@ -1,4 +1,8 @@
 <patchnote>
+1.0.9
+- Feat: built-in boss/gang menu fallback. When lo_bossmenu or lo_gangmenu are not installed, lo_jobscreator now serves a built-in society menu (hire, fire, grade update, deposit/withdraw, stash). Works for both jobs and gangs, supports VORP and RSGCore. Uses the new lo_society_accounts SQL table (auto-created).
+- Fix: paycheck no longer silently swallows salary if lo_bossmenu/lo_gangmenu/lo_banking are not running. Boss/gang accounts now fall back to the built-in account system; banking falls back to cash (currencyType 0).
+
 1.0.8
 - Feat: Items tab enabled for RSG (ox_inventory + rsg-inventory). Create, update and delete items via config files (ox_inventory/data/items.lua for lo_core, rsg-core/shared/items.lua for vanilla RSGCore). Changes are injected into core.Shared.Items at runtime without restart.
 - Fix: items list — removed the 200-entry display cap, all items are now visible.
