@@ -1,4 +1,11 @@
 <patchnote>
+1.0.8
+- Feat: Items tab enabled for RSG (ox_inventory + rsg-inventory). Create, update and delete items via config files (ox_inventory/data/items.lua for lo_core, rsg-core/shared/items.lua for vanilla RSGCore). Changes are injected into core.Shared.Items at runtime without restart.
+- Fix: items list — removed the 200-entry display cap, all items are now visible.
+- Fix: overly verbose setting hints — progress provider hint shortened, incorrect "Requires jo_libs" removed from gizmo placement hint.
+- Feat: blip locales — style, color and modifier labels/descriptions now translated via locale files (9 languages).
+- Feat: progress style selector (auto/ox_lib/vorp/native) with locales.
+
 1.0.7
 - Fix: target-prompt peds now use a softer pacification combo (SetPedFleeAttributes / SetPedCombatAttributes 46 / SetPedRelationshipGroupHash CIVMALE / SetPedKeepTask) instead of the heavy AI-blocking flags. They still won't flee, fight or wander, but remain valid lock-on targets. SetEntityInvincible + SetPedCanRagdoll(false) + SetEntityAsMissionEntity are kept so the ped still can't be killed or garbage-collected.
 - Feat: target-prompt activation distance. The right-click prompt now reuses the interaction's `promptDistance` field (Server Config → Interactions) as the max distance for the prompt to be usable. Lock-on from beyond that distance only highlights the ped — the prompt itself is hidden until the player gets closer. Falls back to Config.PromptDistance, then 5.0 m.
