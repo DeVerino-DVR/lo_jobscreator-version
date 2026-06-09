@@ -1,6 +1,9 @@
 <patchnote>
 1.1.0
 - Feat: Config.BlipGrouping.enabled toggle. The script's town-leader blips (registered for RDR2-native zoom-out clustering: blips marked BLIP_MODIFIER_GROUPING_<TOWN>_FOLLOWER collapse under their town leader when the player zooms out on the map) can now be disabled in one line if the server owner doesn't want them. Defaults to enabled — no behavior change for existing setups.
+- Feat: map blip grouping in the editor — a blip can be assigned to a town group; grouped blips collapse under their town leader when the player zooms out on the map.
+- Feat: included society bank for jobs and gangs — built-in deposit/withdraw through the lo_society_accounts system, no external banking resource required.
+- Feat: built-in boss menu working for both jobs and gangs (hire, fire, grade management, society funds, stash).
 
 1.0.9
 - Feat: built-in boss/gang menu fallback. When lo_bossmenu or lo_gangmenu are not installed, lo_jobscreator now serves a built-in society menu (hire, fire, grade update, deposit/withdraw, stash). Works for both jobs and gangs, supports VORP and RSGCore. Uses the new lo_society_accounts SQL table (auto-created).
