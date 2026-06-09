@@ -1,6 +1,7 @@
 <patchnote>
 1.1.1
 - Fix: VORP job interactions silently refused since the RSG addition. GetMyJob / GetMyGang / GetMyGrade / GetMyGangGrade tested `if GetCustomJob then return GetCustomJob() end` — but the RSG support made these Custom* functions exist unconditionally and return nil for non-RSG frameworks, so VORP players got nil for their job/gang and every job-gated interaction (entityName == myJob check in AddPromptZone) failed. Now we test the returned VALUE, not the function existence — VORP falls through to the state.Character path again, RSG keeps its dedicated path.
+- Fix: newly-created job/gang interactions did not show up in-world on VORP until a re-set of the player's job (or the 180s background poll). The vorp:playerJobChange / vorp:playerGangChange / vorp:SelectedCharacter handlers only refreshed the optimization cache (PlayerJobCache) — they didn't update ConnectedPlayers[src].job, which BroadcastInteractionDelta uses to decide who receives the new-interaction event. ConnectedPlayers is now synced immediately on every VORP job/gang change, so creating an interaction shows it to the right players right away.
 
 1.1.0
 - Feat: Config.BlipGrouping.enabled toggle. The script's town-leader blips (registered for RDR2-native zoom-out clustering: blips marked BLIP_MODIFIER_GROUPING_<TOWN>_FOLLOWER collapse under their town leader when the player zooms out on the map) can now be disabled in one line if the server owner doesn't want them. Defaults to enabled — no behavior change for existing setups.
