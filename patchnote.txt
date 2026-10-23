@@ -1,5 +1,10 @@
 <patchnote>
 1.1.2
+- Feat: job-owned shops can now allow purchases by everyone. Enable "Purchases open to everyone" in the shop configuration: customers can buy without the job or being on duty, while stock management remains restricted to authorised employees on duty. Shop availability and stock updates are synced live to customers.
+- Feat: shops can sell VORP weapons using the dedicated weapon inventory API. Weapons are identified in the product selector, sold individually and can be purchased in multiple quantities. Capacity checks, payment refunds on failure and stock deductions follow the number of weapons successfully created.
+- Fix: editing a shop now preserves its stock and product settings. Corrected gold payment checks in the shop menu.
+- Feat: phone calls now support SaltyChat automatically alongside pma-voice. Answering establishes the voice connection; hangups, disconnects and resource stops clean it up. Editable server hooks OnPhoneCallAnswered and OnPhoneCallEnded provide both players' server IDs for custom integrations.
+- Fix: the F7 vehicle action now uses the dedicated cage seats for prisoner transport wagons, detaches the escort and checks that the prisoner was placed successfully. Pulling a prisoner out also releases the transport seat correctly.
 - Fix: 3D text labels of the previous job/gang's interactions kept drawing forever after a job change. CleanupEntityVisuals wiped every other layer (peds, props, blips, markers, prompts, targets) but missed ActiveText3D — the floating labels are now cleared with the rest.
 - Fix: built-in boss menu silently aborted when ox_lib wasn't loaded (RegisterNetEvent handler bailed on `if not lib then return end`). The menu is now built on the shared ShowMenu / ShowInput / Notify wrappers, so it works on every provider (ox_lib, vorp_menu, jo_libs, native).
 - Feat: boss action interaction now has a Configuration tab in the editor. Six checkboxes let you pick which sections appear in the boss menu — society finances, deposit, withdraw, employees management, hire nearby players, society stash. Interactions without the config (legacy) keep every section enabled, no behaviour change.
